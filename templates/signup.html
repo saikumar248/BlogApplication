@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Blog App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>My Blog</h1>
+        <nav>
+            <ul class="nav_links">
+                <!-- <li><a href="/home">Home</a></li>
+                <li><a href="{{ url_for('new_post') }}">New Post</a></li> -->
+                <li><a href="/">Signin</a></li>
+                <li><a href="/signup">Signup</a></li>
+                <!-- <li><a href="/signout">SignOut</a></li> -->
+            
+                
+            </ul>
+        </nav>
+
+
+
+
+        <!-- <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('new_post') }}">New Post</a></li>
+                
+            </ul>
+        </nav> -->
+    </header>
+    <div class="form_container">
+        <h2>Sign Up</h2>
+        <form method="post" action="/add_user">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="uname" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="uemail" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="upassword" required>
+            <br>
+            <input type="submit" value="Sign Up">
+        </form>
+        <p>Already a member? <a href="/">Login Here</a></p>
+    </div>
+    
+</body>
+</html>

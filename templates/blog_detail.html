@@ -1,0 +1,98 @@
+<!-- blog_detail.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Blog</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <!-- Unicons -->
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+      </head>
+    <title>{{ post.title }}</title>
+    <style>
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .container {
+            position: fixed;
+            max-width: 800px;
+            max-height: 400px;
+            width: 100%;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1.2);
+            z-index: 101;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            overflow: auto;
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 32px;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .author {
+            font-style: italic;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #333;
+            text-decoration: none;
+            margin-top: 20px;
+            border: 1px solid #333;
+            padding: 8px 15px;
+            border-radius: 3px;
+        }
+
+        .back-link:hover {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header class="navy">
+        <h1>My Blog App</h1>
+        <nav>
+            <ul class="nav_links">
+                <!-- <li><a href="/home">Home</a></li> -->
+                <li><a href="/blog">Home</a></li>
+                <li><a href="/new_post">New Post</a></li>
+                <li><a href="/signout">SignOut</a></li>
+            
+                
+            </ul>
+        </nav>
+    
+      </header>
+  
+    <header class="header">
+        <h1>{{ post.title }}</h1>
+    </header>
+    <div class="container">
+      <p class="author">Author: {{ post.author }}</p>
+        <p>{{ post.content }}</p>
+        
+        <a href="/blog" class="back-link">Back to Blog List</a>
+    </div>
+</body>
+</html>

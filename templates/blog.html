@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Blog App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Unicons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+  </head>
+
+
+<body>
+  <header>
+    <h1>My Blog App</h1>
+    <nav>
+        <ul class="nav_links">
+
+            <li><a href="/blog">Home</a></li>
+            <li><a href="/new_post">New Post</a></li>
+            <li><a href="/signout">SignOut</a></li>
+        
+            
+        </ul>
+    </nav>
+
+  </header>
+  <section id="blog">
+
+    <div class="blog-heading">
+      <span>Recent Posts</span>
+      <h3>Blogs</h3>
+    </div>
+
+    <div class="blog-container">
+
+      {% for post in posts %}
+      <!-- main_page.html -->
+<div class="blog-box">
+  <div class="blog-buttons">
+    <!-- <button  class="edit-button" onclick="window.location.href = '/edit_post/{{ post.title }}';">Edit</button> -->
+    <button class="delete-button" onclick="window.location.href = '/delete_post/{{ post.title }}';">Delete</button>
+  </div>
+  <div class="blog-text">
+    <div><a href="/blog/{{ post.title }}" class="blog-title">{{ post.title }}</a></div>
+    <div class="author"><p><i>Author: {{ post.author }}</i></p></div>
+    <div class="content">
+      <p>{{ post.content | truncate(200) }}</p>
+    </div>
+   
+    <a href="/blog/{{ post.title }}" class="view-more">View More</a>
+  </div>
+</div>
+
+      
+      {% endfor %}
+      
+      
+
+
+    </div>
+  </section>
+
+</body>
+
+</html>
